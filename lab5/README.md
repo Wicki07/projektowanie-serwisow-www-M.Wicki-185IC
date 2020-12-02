@@ -2,8 +2,8 @@
 
 ### Autor: Mateusz Wicki Grupa: 185IC_B1
 
-## Strona Główna
-![Strona Główna](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/main/lab2/ZrzutyEkranu/index.PNG)
+## Wyniki Zadań
+![Strona Główna](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab5/ZrzutyEkranu/1.PNG)
 
 Do napisania strony wykorzystałem szablon **bootstrapowy** lekko modyfikując go przy pomocy plików css.
 
