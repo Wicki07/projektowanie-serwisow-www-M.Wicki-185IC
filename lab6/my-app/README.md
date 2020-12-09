@@ -2,15 +2,33 @@
 
 ### Autor: Mateusz Wicki Grupa: 185IC_B1
 
-### Wygląd strony 
+## Wygląd strony 
 ![](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab6/my-app/zrzuty/1.PNG)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Po naciśnięciu na elemnet w tabeli on znika natopmiast naciśnięcie na przycisk ***Pokaż wszystkie*** pojawiają się wszystkie elemnent
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab6/my-app/zrzuty/1.PNG)
 
+## Kod
+
+Kod uruchamiający aplikację
+```javascript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+reportWebVitals();
+```
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
