@@ -29,57 +29,179 @@ ReactDOM.render(
 
 reportWebVitals();
 ```
-### `npm test`
+### Główna funkcja
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```javascript
+function App() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <div className="Table">
+        <TableTitle />
+        <Table />
+        </div>
+      </header>
+    </div>
+  );
+}
+```
+### Klasa TableTitle i wykorzystana funkcja
 
-### `npm run build`
+```javascript
+class TableTitle extends React.Component{
+    state={
+      title: 'Tabela zadan'
+    }
+    render(){
+    return (
+    <div><Title title={this.state.title}/></div>
+    )
+  }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+}
+ function Title(props){
+  return(
+  <h1 className="title-header">{props.title}</h1>
+  )
+}
+```
+### Klasa Table i wykorzystane funkcje
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```javascript
+class Table extends React.Component{
+  render(){
+    return (
+      <div>    
+        <Test />
+        <Button />
+      </div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    )
+  }
+  }
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ function Test(){
+  const data = React.useMemo(
+    () => [
+      {
+        col1: '8:00 Polski',
+        col2: '11:00 Matematyka',
+        col3: 'WOLNE',
+        col4: '9:30 Angielski',
+        col5: '11:50 WF',
+      },
+    ],
+    []
+  )
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  const columns = React.useMemo(
+    () => [
+      {
+        Header: 'Poniedziałek',
+        accessor: 'col1',
+      },
+      {
+        Header: 'Wtorek',
+        accessor: 'col2',
+      },
+      {
+        Header: 'Środa',
+        accessor: 'col3',
+      },
+      {
+        Header: 'Czwartek',
+        accessor: 'col4',
+      },
+      {
+        Header: 'Piatek',
+        accessor: 'col5',
+      },
+    ],
+    []
+  )
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+  const {
+    getTableProps,
+    getTableBodyProps,
+    headerGroups,
+    rows,
+    prepareRow,
+  } = useTable({ columns, data })
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  return (
+    // Tworzenie tabeli
+    <table {...getTableProps()} style={{ 
+            border: 'solid 2px black',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            }}>
+      <thead>
+        {headerGroups.map(headerGroup => (
+          <tr {...headerGroup.getHeaderGroupProps()}> 
+            {headerGroup.headers.map(column => (
+              <th
+                {...column.getHeaderProps()}
+                key={headerGroup.id}
+                style={{
+                  borderBottom: 'solid 3px black',
+                  borderLeft: 'solid 1px black',
+                  color: 'black',
+                  fontWeight: 'bold',
+                  paddingLeft: '30px',
+                  paddingRight: '30px',
+                }}
+              >
+                {column.render('Header')}
+              </th>
+            ))}
+          </tr>
+        ))}
+      </thead>
+      <tbody {...getTableBodyProps()}>
+        {rows.map(row => {
+          prepareRow(row)
+          return (
+            <tr {...row.getRowProps()}>
+              {row.cells.map(cell => {
+                return (
+                  <td
+                    {...cell.getCellProps()}
+                    className="cell"
+                    style={{
+                      padding: '10px',
+                      border: 'solid 1px gray',
+                      color: 'black',
+                    }}
+                    onClick={() => hide(cell.getCellProps().key)}
+                  >
+                    {cell.render('Cell')}
+                  </td>
+                )
+              })}
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
+  )
+}
+function hide(id){
+  document.querySelectorAll(".cell")[id.charAt(id.length-1) - 1].style.opacity = 0;
+}
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+class Button extends React.Component{
+  button(){
+    document.querySelectorAll(".cell").forEach(element => {
+      element.style.opacity = 100;
+    });
+  }
+  render(){
+    return(
+      <div>
+        <button type="button" className="btn btn-dark mt-5" onClick={this.button}>Pokaż wyszystkie</button>
+      </div>
+    )
+  }
+}
+```
