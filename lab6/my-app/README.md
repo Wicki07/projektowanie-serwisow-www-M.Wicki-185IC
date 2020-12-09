@@ -1,12 +1,9 @@
-# Getting Started with Create React App
+# projektowanie-serwisow-www-M.Wicki-185IC
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Autor: Mateusz Wicki Grupa: 185IC_B1
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
+### Wygląd strony 
+![](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab6/my-app/zrzuty/1.PNG)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
