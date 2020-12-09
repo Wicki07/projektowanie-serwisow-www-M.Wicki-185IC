@@ -11,7 +11,7 @@ Po naciśnięciu na elemnet w tabeli on znika natopmiast naciśnięcie na przyci
 
 ## Kod
 
-Kod uruchamiający aplikację
+### Kod uruchamiający aplikację
 ```javascript
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -29,6 +29,7 @@ ReactDOM.render(
 
 reportWebVitals();
 ```
+Aby dodać bootstrapa do aplikacji należy go najpier zainstalować przy pomocy komendy `npm install react-bootstrap bootstrap` nastpępnie należy go zaimportować
 ### Główna funkcja
 
 ```javascript
@@ -205,3 +206,4 @@ class Button extends React.Component{
   }
 }
 ```
+Do utworzenia tabeli skorzystałem z poradnika ze strony https://react-table.tanstack.com/. React-table działa jako biblioteka UI więc również trzeba go zainstalować przy pomocy komendy ` npm install react-table --save`
