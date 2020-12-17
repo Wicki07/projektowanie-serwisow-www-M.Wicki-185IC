@@ -1,0 +1,56 @@
+body{
+  background-color: #eeeff0 !important;
+}
+.navbar-menu .menu{
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  
+}
+.navbar-menu .menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.navbar-menu .menu li {
+  float: left;
+}
+.navbar-menu .menu li a {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar-menu .menu li a:hover {
+  background-color: #007bff !important;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.MuiPaper-root .MuiCardContent-root{
+  color: black;
+  background-color: rgb(255, 255, 255) !important;
+}
+.MuiCardActions-root{
+  background-color: white !important;
+}
+.MuiContainer-root .paper{
+    margin-top: 8rem;
+    display: 'flex';
+    flex-direction: column;
+    align-items: center;
+}
+.MuiTypography-root{
+  text-align: center;
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: #007bff !important;
+  border-width: 2px;
+}
+.MuiButton-contained:hover{
+  background-color: #0071e9 !important;
+}
+.MuiCheckbox-colorPrimary.Mui-checked {
+  color: #007bff !important;
+}
