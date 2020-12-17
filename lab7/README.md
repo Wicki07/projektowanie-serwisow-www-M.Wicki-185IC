@@ -3,12 +3,9 @@
 ### Autor: Mateusz Wicki Grupa: 185IC_B1
 
 ## Wygląd strony 
-![](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab6/my-app/zrzuty/1.PNG)
-
-Po naciśnięciu na elemnet w tabeli on znika natopmiast naciśnięcie na przycisk ***Pokaż wszystkie*** pojawiają się wszystkie elemnent
-
-![](https://github.com/Wicki07/projektowanie-serwisow-www-M.Wicki-185IC/blob/master/lab6/my-app/zrzuty/1.PNG)
-
+![](https://i.imgur.com/ZbQENwA.png)
+![](https://i.imgur.com/dgHk34w.png)
+![](https://i.imgur.com/drbjHF8.png)
 ## Kod
 
 ### Kod uruchamiający aplikację
