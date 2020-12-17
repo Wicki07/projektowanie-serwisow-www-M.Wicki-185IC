@@ -26,24 +26,20 @@ ReactDOM.render(
 
 reportWebVitals();
 ```
-Aby dodać bootstrapa do aplikacji należy go najpier zainstalować przy pomocy komendy `npm install react-bootstrap bootstrap` nastpępnie należy go zaimportować
+Aby dodać bootstrapa do aplikacji należy go najpierw zainstalować przy pomocy komendy `npm install react-bootstrap bootstrap` nastpępnie należy go zaimportować
 ### Główna funkcja
 
 ```javascript
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <div className="Table">
-        <TableTitle />
-        <Table />
-        </div>
-      </header>
-    </div>
-  );
-}
+    return (
+          <Router>
+            <Header />
+            <Contetnt />
+          </Router>    
+    )
+  }
 ```
-### Klasa TableTitle i wykorzystana funkcja
+### Funkcja głównej strony
 
 ```javascript
 class TableTitle extends React.Component{
@@ -63,144 +59,58 @@ class TableTitle extends React.Component{
   )
 }
 ```
-### Klasa Table i wykorzystane funkcje
+### Funkcja strony "blog"
 
-```python
-class Table extends React.Component{
-  render(){
-    return (
-      <div>    
-        <Test />
-        <Button />
-      </div>
-
-    )
-  }
-  }
-
-
- function Test(){
-  const data = React.useMemo(
-    () => [
-      {
-        col1: '8:00 Polski',
-        col2: '11:00 Matematyka',
-        col3: 'WOLNE',
-        col4: '9:30 Angielski',
-        col5: '11:50 WF',
-      },
-    ],
-    []
-  )
-
-  const columns = React.useMemo(
-    () => [
-      {
-        Header: 'Poniedziałek',
-        accessor: 'col1',
-      },
-      {
-        Header: 'Wtorek',
-        accessor: 'col2',
-      },
-      {
-        Header: 'Środa',
-        accessor: 'col3',
-      },
-      {
-        Header: 'Czwartek',
-        accessor: 'col4',
-      },
-      {
-        Header: 'Piatek',
-        accessor: 'col5',
-      },
-    ],
-    []
-  )
-
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({ columns, data })
-
-  return (
-    // Tworzenie tabeli
-    <table {...getTableProps()} style={{ 
-            border: 'solid 2px black',
-            marginLeft: 'auto',
-            marginRight: 'auto',
-            }}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}> 
-            {headerGroup.headers.map(column => (
-              <th
-                {...column.getHeaderProps()}
-                key={headerGroup.id}
-                style={{
-                  borderBottom: 'solid 3px black',
-                  borderLeft: 'solid 1px black',
-                  color: 'black',
-                  fontWeight: 'bold',
-                  paddingLeft: '30px',
-                  paddingRight: '30px',
-                }}
-              >
-                {column.render('Header')}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map(row => {
-          prepareRow(row)
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => {
-                return (
-                  <td
-                    {...cell.getCellProps()}
-                    className="cell"
-                    style={{
-                      padding: '10px',
-                      border: 'solid 1px gray',
-                      color: 'black',
-                    }}
-                    onClick={() => hide(cell.getCellProps().key)}
-                  >
-                    {cell.render('Cell')}
-                  </td>
-                )
-              })}
-            </tr>
-          )
-        })}
-      </tbody>
-    </table>
-  )
-}
-function hide(id){
-  document.querySelectorAll(".cell")[id.charAt(id.length-1) - 1].style.opacity = 0;
-}
-
-class Button extends React.Component{
-  button(){
-    document.querySelectorAll(".cell").forEach(element => {
-      element.style.opacity = 100;
-    });
-  }
-  render(){
-    return(
-      <div>
-        <button type="button" className="btn btn-dark mt-5" onClick={this.button}>Pokaż wyszystkie</button>
-      </div>
-    )
-  }
-}
+```javascript
+ 
+ return (
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography className={classes.title} color="textSecondary" gutterBottom>
+          Strona stworzona przez
+        </Typography>
+        <Typography variant="h5" component="h2">
+          Mateusza Wickiego
+        <Avatar alt="Remy Sharp" src="https://avatars1.githubusercontent.com/u/71140843?s=460&v=4" className={classes.image} />
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button className={classes.button} size="large" href="https://github.com/Wicki07" target="blank">Zajrzyj po więcej</Button>
+      </CardActions>
+    </Card>
+  );
 ```
-Do utworzenia tabeli skorzystałem z poradnika ze strony https://react-table.tanstack.com/. React-table działa jako biblioteka UI więc również trzeba go zainstalować przy pomocy komendy ` npm install react-table --save`
+Sytlowanie elemntów elemntów strony "blog"
+
+```javascript
+  const useStyles = makeStyles({
+    root: {
+      width: '70%',
+      height: 500,
+      marginTop: 50,
+      marginRight: 'auto',
+      marginLeft: 'auto',
+    },
+    title: {
+      color: '#000',
+      fontSize: 30,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+    image: {
+      width: 200,
+      height: 200,
+      marginRight: 'auto',
+      marginLeft: 'auto',
+    },
+    button: {
+      marginRight: 'auto',
+      marginLeft: 'auto',
+    }
+  });
+  
+```
+
+#### Z biblioteki `@material-ui/core` wykorzystane elemnty:
+ - Card
