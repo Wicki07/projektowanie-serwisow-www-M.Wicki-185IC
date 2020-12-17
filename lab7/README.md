@@ -40,27 +40,6 @@ function App() {
   }
 ```
 ### Funkcja głównej strony
-
-```javascript
-class TableTitle extends React.Component{
-    state={
-      title: 'Tabela zadan'
-    }
-    render(){
-    return (
-    <div><Title title={this.state.title}/></div>
-    )
-  }
-
-}
- function Title(props){
-  return(
-  <h1 className="title-header">{props.title}</h1>
-  )
-}
-```
-### Funkcja strony "blog"
-
 ```javascript
  
  return (
@@ -80,7 +59,7 @@ class TableTitle extends React.Component{
     </Card>
   );
 ```
-Sytlowanie elemntów elemntów strony "blog"
+Sytlowanie elemntów strony głównej
 
 ```javascript
   const useStyles = makeStyles({
@@ -114,3 +93,176 @@ Sytlowanie elemntów elemntów strony "blog"
 
 #### Z biblioteki `@material-ui/core` wykorzystane elemnty:
  - Card
+ - CardActions
+ - CardContent
+ - Typography
+ - Avatar
+
+### Funkcja strony "Login"
+```javascript
+ 
+return (
+    <Container className={classes.root} component="main" maxWidth="xs">
+      <CssBaseline />
+      <div class="paper">
+        <Typography component="h1" variant="h5">
+          Logowanie
+        </Typography>
+        <form  noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Login"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Hasło"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Zapamiętaj mnie"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            className={classes.button}
+          >
+            Zaloguj
+          </Button>
+        </form>
+      </div>
+    </Container>
+```
+Sytlowanie elemntów logowania
+
+```javascript
+  const useStyles = makeStyles({
+    root: {
+      '& label.Mui-focused': {
+        color: 'rgba(0, 0, 0, 0.87)',
+      },
+    },
+    button: {
+      backgroundColor: '#007bff',
+    }
+  });
+  
+  
+```
+
+#### Z biblioteki `@material-ui/core` wykorzystane elemnty:
+ - Container
+ - CssBaseline
+ - Typography
+ - TextField
+ - FormControlLabel
+ - Button
+ 
+ 
+### Funkcja strony "Blog"
+```javascript
+ 
+function Blog() {
+  const classes = useStyles();
+
+  return (
+    <React.Fragment>
+      <main>
+        <Container className={classes.cardGrid} maxWidth="lg">
+          {/* End hero unit */}
+          <Grid container spacing={4}>
+            {cards.map((card) => (
+              <Grid item key={card} xs={12} sm={6} md={6}>
+                <Card className={classes.card + " shadow"}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image="https://i.imgur.com/B68MhUu.gif"
+                    title="Image title"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      Tytuł
+                    </Typography>
+                    <Typography>
+                      Przykładowy opis.
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button size="small" color="primary">
+                      View
+                    </Button>
+                    <Button size="small" color="primary">
+                      Edit
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </main>
+    </React.Fragment>
+  );
+}
+```
+Sytlowanie elemntów na blogu
+
+```javascript
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  heroContent: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(8, 0, 6),
+  },
+  heroButtons: {
+    marginTop: theme.spacing(4),
+  },
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardMedia: {
+    paddingTop: '56.25%', // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+}));
+
+const cards = [1, 2, 3, 4, 5, 6];
+```
+
+#### Z biblioteki `@material-ui/core` wykorzystane elemnty:
+ - Container
+ - Typography
+ - Button
+ - Grid
+ - Card
+ - CardMedia
+ - CardContent
+ - CardActions
