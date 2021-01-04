@@ -77,3 +77,18 @@ function ReadMore() {
 }
 export default App;
 ```
+## Git Diff
+
+Polecenie ``git diff`` zastosowałem do zobaczenia różnicy między commitami 
+
+![](https://i.imgur.com/2LevVZg.png)
+
+Można zobaczyć że pokazne zostały wyszstkie dokonane zmiany dla każdego zmienionego pliku.
+
+Aby zobaczyć różnicę między przykładem, a własnymi zmianami musiałem użyć polecenia ``vimdiff <file1> <file2>``, ponieważ nie dodałem do repo najpierw przykładowej aplikacji, a następnie zmodyfikowaną. Dodałem tylko i wyłącznie zmodyfikowaną
+
+![](https://i.imgur.com/0JB8nLv.png)
+
+Poleceniem ``git difftoll`` możemy podjerzeć różnice między commitami jednak jesteśmy za każdym razem pytani czy chcemy wyświetlić zmianę dla zmnienionego pliku
+
+![](https://i.imgur.com/rzHWHyv.png)
