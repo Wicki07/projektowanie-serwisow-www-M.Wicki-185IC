@@ -7,9 +7,13 @@
 ![](https://i.imgur.com/2r9kzn3.png)
 ![](https://i.imgur.com/v5oyc73.png)
 
+## Link do przykładu
+
+https://reactjsexample.com/a-react-custom-hook-for-creating-flexible-and-accessible-expand-collapse/
+
 ## Kod Aplikacji
 
-```python
+```javascript
 //Import niezbędnych pakietów
 import './App.css';
 import React, { useState } from 'react'; 
