@@ -96,3 +96,5 @@ Aby zobaczyć różnicę między przykładem, a własnymi zmianami musiałem uż
 Poleceniem ``git difftoll`` możemy podjerzeć różnice między commitami jednak jesteśmy za każdym razem pytani czy chcemy wyświetlić zmianę dla zmnienionego pliku
 
 ![](https://i.imgur.com/rzHWHyv.png)
+
+Na powyższym przykładzie pojawia się się komunikat o barku konfiguracji diff.tool można to zrobić poleceniem ``git config --globa diff.tool vimdiff`` sparwaia to że podstawowym narzędziem do wyświetlania zmian będzie vim
